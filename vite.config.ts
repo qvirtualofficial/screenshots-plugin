@@ -18,6 +18,9 @@ export default defineConfig(({ mode }) => {
     esbuild: {
       pure: ["console.log", "console.info"],
     },
+    server: {
+      port: 3000,
+    },
     plugins: [
       react(),
       tailwindcss(),
