@@ -17,7 +17,7 @@ import { ImagePreview } from "@/components/image-preview.tsx";
 import pluginJson from "@/../plugin.json";
 
 export type ServerScreenshot = {
-  id: number;
+  id: number | string;
   url: string;
   properties: {
     phase: string;
@@ -55,7 +55,7 @@ const ScreenshotUploader = () => {
     });
 
   const { mutate: deleteScreenshot } = useMutation({
-    mutationFn: async (screenshotId: number) => {
+    mutationFn: async (screenshotId: ServerScreenshot["id"]) => {
       await axios.delete(
         `${identityData?.airline.settings.scriptURL}screenshot/delete?photo_id=${screenshotId}`,
         {
