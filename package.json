@@ -1,11 +1,11 @@
 {
-  "name": "screenshots",
+  "name": "com.qvirtual.screenshots",
   "private": true,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && mv com.qvirtual.screenshots/ui/plugin.json com.qvirtual.screenshots/plugin.json",
+    "build": "tsc -b && vite build",
     "lint": "eslint ./src",
     "preview": "vite preview",
     "format": "prettier --write ./src"

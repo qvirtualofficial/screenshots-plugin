@@ -4,3 +4,4 @@ node_modules
 .eslintcache
 com.qvirtual.screenshots
 tsconfig.app.tsbuildinfo
+.env
