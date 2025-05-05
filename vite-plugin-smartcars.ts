@@ -3,7 +3,7 @@ import type { Plugin } from "vite";
 
 export default function smartCARSPlugin(options: {
   pluginName: string;
-  sc3PluginDir: string;
+  sc3PluginDir: string | undefined;
   outputDir: string;
 }): Plugin {
   return {
@@ -11,24 +11,28 @@ export default function smartCARSPlugin(options: {
 
     configureServer(server) {
       server.httpServer?.once("listening", () => {
-        console.log(
-          "🚀 Dev server started - copying initial build to smartCARS...",
-        );
+        if (options.sc3PluginDir) {
+          console.log(
+            "🚀 Dev server started - copying initial build to smartCARS...",
+          );
+          copyToSmartCARS(
+            options.pluginName,
+            options.sc3PluginDir,
+            options.outputDir,
+          );
+        }
+      });
+    },
+
+    closeBundle: () => {
+      if (options.sc3PluginDir) {
+        console.log("📦 Build completed - copying to smartCARS...");
         copyToSmartCARS(
           options.pluginName,
           options.sc3PluginDir,
           options.outputDir,
         );
-      });
-    },
-
-    closeBundle: () => {
-      console.log("📦 Build completed - copying to smartCARS...");
-      copyToSmartCARS(
-        options.pluginName,
-        options.sc3PluginDir,
-        options.outputDir,
-      );
+      }
     },
   };
 }

@@ -8,7 +8,7 @@ import packageJson from "./package.json";
 import copy from "rollup-plugin-copy";
 
 const PLUGIN_NAME = packageJson.name;
-const OUTPUT_DIR = resolve(__dirname, `./${PLUGIN_NAME}/ui`);
+const OUTPUT_DIR = resolve(__dirname, `./dist/ui`);
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
@@ -30,13 +30,7 @@ export default defineConfig(({ mode }) => {
         outputDir: OUTPUT_DIR,
       }),
       copy({
-        targets: [
-          { src: "plugin.json", dest: OUTPUT_DIR + "/../" },
-          {
-            src: PLUGIN_NAME,
-            dest: `${VITE_SC3_PLUGIN_DIR}`,
-          },
-        ],
+        targets: [{ src: "plugin.json", dest: OUTPUT_DIR + "/../" }],
       }),
     ],
     resolve: {
