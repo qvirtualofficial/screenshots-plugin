@@ -1,6 +1,7 @@
 import { useTrackingDataQuery } from "@/hooks/useTrackingDataQuery.ts";
 import { Header, HeaderStat } from "./components/header";
 import { LoadingSpinner } from "@/components/loading-spinner.tsx";
+import { ScreenshotUploader } from "@/components/screenshot-uploader.tsx";
 
 function App() {
   const { data: trackingData, isLoading } = useTrackingDataQuery();
@@ -17,7 +18,7 @@ function App() {
       ) : !isTrackingAFlight ? (
         <LoadingSpinner title={"Awaiting flight to be started..."} />
       ) : (
-        <div>Hello app</div>
+        <ScreenshotUploader />
       )}
     </div>
   );

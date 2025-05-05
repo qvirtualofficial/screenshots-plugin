@@ -18,6 +18,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   applyDocumentColor("primary", backcolor);
   applyDocumentColor("primary-foreground", forecolor);
+  applyDocumentColor("foreground", darkmode ? "#FFFFFF" : "#565656");
+  applyDocumentColor("muted", darkmode ? "#565656" : "#e6e9ec");
   applyDocumentColor("background", getAppColor(darkmode));
 
   return children;
