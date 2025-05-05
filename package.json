@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "build": "tsc -b && vite build && mv com.qvirtual.screenshots/ui/plugin.json com.qvirtual.screenshots/plugin.json",
+    "lint": "eslint ./src",
     "preview": "vite preview",
-    "format": "prettier --write ."
+    "format": "prettier --write ./src"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",

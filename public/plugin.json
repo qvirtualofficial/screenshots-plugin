@@ -1,0 +1,10 @@
+{
+  "id": "com.qvirtual.screenshots",
+  "name": "Screenshots",
+  "organization": "QVirtual",
+  "allowedCommunities": [3],
+  "version": "1.0.0",
+  "type": "airline",
+  "description": "A plugin to attach screenshots to your PIREP.",
+  "availableSettings": {}
+}

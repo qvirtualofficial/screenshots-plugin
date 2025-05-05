@@ -2,3 +2,5 @@ node_modules
 .DS_Store
 .idea
 .eslintcache
+com.qvirtual.screenshots
+tsconfig.app.tsbuildinfo
